@@ -1,5 +1,6 @@
-pyjwt
 pyyaml
+pyjwt
 psycopg2
 sqlalchemy
 graphene
+cryptography
