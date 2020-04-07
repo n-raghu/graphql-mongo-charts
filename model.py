@@ -4,13 +4,13 @@ from sqlalchemy import *
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-dburi = 'postgresql://pgusr@pgusr/graphserver/gdb'
+dburi = 'postgresql://pgusr:pgusr@gqldb/gdb'
 dbeng = create_engine(dburi)
 db_session = scoped_session(
     sessionmaker(
         autocommit=False,
         autoflush=False,
-        bind=eng,
+        bind=dbeng,
     )
 )
 
