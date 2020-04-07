@@ -1,18 +1,20 @@
+import sys
+
 from sqlalchemy import *
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-dbeng = create_engine('sqlite:///database.sqlite3')
+dburi = 'postgresql://pgusr@pgusr/graphserver/gdb'
+dbeng = create_engine(dburi)
 db_session = scoped_session(
     sessionmaker(
         autocommit=False,
         autoflush=False,
-        bind=engine,
+        bind=eng,
     )
 )
 
 Base = declarative_base()
-# We will need this for querying
 Base.query = db_session.query_property()
 
 
@@ -31,3 +33,6 @@ class Employee(Base):
     department_id = Column(Integer)
 
 
+if __name__ == '__main__':
+    Base.metadata.create_all(dbeng)
+    dbeng.dispose()
