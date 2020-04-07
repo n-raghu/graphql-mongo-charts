@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_graphql import GraphQLView
 
-from models import db_session
+from model import db_session
 from schema import schema, Department
 
 app = Flask(__name__)
@@ -23,4 +23,4 @@ def shutdown_session(exception=None):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

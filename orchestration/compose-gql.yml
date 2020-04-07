@@ -13,11 +13,11 @@ services:
     gql:
         build:
             context: .
-            dockerfile: gql-3
+            dockerfile: gql-5
         command: python waker.py
         container_name: kon_gql
         hostname: host_gql
-        image: gql-p:beta
+        image: gql-p:1b
         ports:
             - 36969:5000
         volumes:
