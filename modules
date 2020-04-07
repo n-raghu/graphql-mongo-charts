@@ -1,0 +1,5 @@
+pyjwt
+pyyaml
+psycopg2
+sqlalchemy
+graphene
